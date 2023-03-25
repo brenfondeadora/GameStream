@@ -19,27 +19,22 @@ struct LoginView: View {
                     Spacer()
                     Button("¿Olvidaste tu contraseña?", action: {}).foregroundColor(Color("Dark-Cyan"))
                 }.padding(.horizontal, 30)
-                HStack {
-                    Button {
-                        
-                    } label: {
-                        Text("INICIAR SESIÓN")
-                            .frame(maxWidth: .infinity)
-                    }.buttonStyle(PrimaryButtonStyle()).padding(.vertical, 30)
-                }.padding(.horizontal, 30)
+                
+                Button(action: logIn) {
+                    Text("INICIAR SESIÓN")
+                }.buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal, 30)
+                
+                
                 Spacer()
                 Text("Inicia sesión con estas redes sociales").foregroundColor(.gray)
                 HStack{
-                    Button {
-                        
-                    } label: {
-                        Text("FACEBOOK")
+                    Button(action: facebook) {
+                       Text("FACEBOOK")
                             .frame(maxWidth: .infinity)
                     }.buttonStyle(SecondaryButtonStyle())
                     Spacer()
-                    Button {
-                        
-                    } label: {
+                    Button(action: twitter) {
                         Text(" TWITTER")
                             .frame(maxWidth: .infinity)
                     }.buttonStyle(SecondaryButtonStyle())
@@ -48,4 +43,10 @@ struct LoginView: View {
             }.padding(.horizontal, 10)
         }
     }
+    
+    func logIn() {}
+    
+    func facebook() {}
+    
+    func twitter() {}
 }
