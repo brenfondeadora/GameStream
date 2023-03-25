@@ -17,7 +17,7 @@ struct LoginView: View {
                 CustomTextField(title: "Contraseña", placeholder: "12345", keyboardType: .default, isSecureField: true)
                 HStack {
                     Spacer()
-                    Button("¿Olvidaste tu contraseña?", action: {}).foregroundColor(Color("green"))
+                    Button("¿Olvidaste tu contraseña?", action: {}).foregroundColor(Color("Dark-Cyan"))
                 }.padding(.horizontal, 30)
                 HStack {
                     Button {
