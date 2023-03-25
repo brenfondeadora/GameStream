@@ -11,11 +11,14 @@ import SwiftUI
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(15)
+            .fontWeight(.bold)
             .foregroundColor(.white)
+            .frame( maxWidth: .infinity, alignment: .center)
+            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
             .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color("Dark-Cyan"), lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: 6)
+                .stroke(Color("Dark-Cyan"), lineWidth: 3)
+                .shadow(color: Color("Dark-Cyan"), radius: 6)
             )
      }
 }
