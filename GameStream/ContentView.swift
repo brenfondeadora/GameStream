@@ -52,41 +52,43 @@ struct InitialView: View {
 
 struct LoginView: View {
     var body: some View {
-        VStack{
-            Spacer()
-            CustomTextField(title: "Correo electrónico", keyboardType: .emailAddress)
-            CustomTextField(title: "Contraseña", keyboardType: .default, isSecureField: true)
-            HStack {
+        ScrollView{
+            VStack{
                 Spacer()
-                Button("¿Olvidaste tu contraseña?", action: {}).foregroundColor(Color("green"))
-            }.padding(.horizontal, 30)
-            HStack {
-                Button {
-                    
-                } label: {
-                    Text("INICIAR SESIÓN")
-                        .frame(maxWidth: .infinity)
-                }.buttonStyle(PrimaryButtonStyle()).padding(.vertical, 30)
-            }.padding(.horizontal, 30)
-            Spacer()
-            Text("Inicia sesión con estas redes sociales").foregroundColor(.gray)
-            HStack{
-                Button {
-                    
-                } label: {
-                    Text("FACEBOOK")
-                        .frame(maxWidth: .infinity)
-                }.buttonStyle(SecondaryButtonStyle())
+                CustomTextField(title: "Correo electrónico", placeholder: "email@gmail.com", keyboardType: .emailAddress)
+                CustomTextField(title: "Contraseña", placeholder: "12345", keyboardType: .default, isSecureField: true)
+                HStack {
+                    Spacer()
+                    Button("¿Olvidaste tu contraseña?", action: {}).foregroundColor(Color("green"))
+                }.padding(.horizontal, 30)
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Text("INICIAR SESIÓN")
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(PrimaryButtonStyle()).padding(.vertical, 30)
+                }.padding(.horizontal, 30)
                 Spacer()
-                Button {
-                    
-                } label: {
-                    Text(" TWITTER")
-                        .frame(maxWidth: .infinity)
-                }.buttonStyle(SecondaryButtonStyle())
-            }.padding(.horizontal, 30)
-            Spacer()
-        }.padding(.horizontal, 10)
+                Text("Inicia sesión con estas redes sociales").foregroundColor(.gray)
+                HStack{
+                    Button {
+                        
+                    } label: {
+                        Text("FACEBOOK")
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(SecondaryButtonStyle())
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text(" TWITTER")
+                            .frame(maxWidth: .infinity)
+                    }.buttonStyle(SecondaryButtonStyle())
+                }.padding(.horizontal, 30)
+                Spacer()
+            }.padding(.horizontal, 10)
+        }
     }
 }
 
@@ -116,6 +118,7 @@ struct CustomTextField: View {
     
     @State var value: String = ""
     @State var title: String = ""
+    @State var placeholder: String = ""
     @State var isActive: Bool = false
     @State var keyboardType: UIKeyboardType = .default
     @State var isSecureField: Bool = false
@@ -127,11 +130,11 @@ struct CustomTextField: View {
           /*  if(isSecureField){
                 SecureField("", text: $value).foregroundColor(.gray)
             }else{ */
-                TextField("", text: $value, onEditingChanged: {
+            TextField("", text: value.isEmpty ? $placeholder : $value, onEditingChanged: {
                     self.isActive = $0
                 }, onCommit: {
                     self.value = self.value
-                }).keyboardType(keyboardType).foregroundColor(.gray)
+                }).font(.caption).keyboardType(keyboardType).foregroundColor(.gray)
           //  }
             Divider().frame(width: .infinity,height: 2).background(isActive ? Color("green") : .gray).padding(.bottom, 20)
             
