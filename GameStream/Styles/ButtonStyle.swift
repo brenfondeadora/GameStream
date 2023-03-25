@@ -15,7 +15,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color("green"), lineWidth: 1.5)
+                    .stroke(Color("Dark-Cyan"), lineWidth: 1.5)
             )
      }
 }
@@ -25,7 +25,12 @@ struct SecondaryButtonStyle: ButtonStyle {
         configuration.label
             .padding(15)
             .background(Color(red: 40/255, green: 59/255, blue: 89/255))
+            .font(.subheadline)
+            .fontWeight(.bold)
             .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(.vertical, 3.0)
+            .frame( maxWidth: .infinity, alignment: .center)
+            .background(Color("Blue-Gray"))
+            .clipShape(RoundedRectangle(cornerRadius: 4.0))
     }
 }
