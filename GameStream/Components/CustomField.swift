@@ -20,17 +20,19 @@ struct CustomTextField: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(title).font(.headline).foregroundColor(isActive ? Color("green") : .white)
-          /*  if(isSecureField){
+            Text(title).font(.headline).foregroundColor(isActive ? Color("Dark-Cyan") : .white)
+            if(isSecureField){
                 SecureField("", text: $value).foregroundColor(.gray)
-            }else{ */
-            TextField("", text: value.isEmpty ? $placeholder : $value, onEditingChanged: {
+            }else{
+                TextField("", text: value.isEmpty ? $placeholder : $value, onEditingChanged: {
                     self.isActive = $0
                 }, onCommit: {
                     self.value = self.value
                 }).font(.caption).keyboardType(keyboardType).foregroundColor(.gray)
-          //  }
-            Divider().frame(width: .infinity,height: 2).background(isActive ? Color("green") : .gray).padding(.bottom, 20)
+           }
+            
+            Divider().frame(height: 2).background(isActive ? Color("Dark-Cyan") : .gray).padding(.bottom, 20)
+            
             
         }.padding(.horizontal, 30)
     }
