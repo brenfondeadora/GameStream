@@ -23,11 +23,12 @@ struct LoginView: View {
                 Button(action: logIn) {
                     Text("INICIAR SESIÓN")
                 }.buttonStyle(PrimaryButtonStyle())
+                    .padding(.top, 50)
                 .padding(.horizontal, 30)
                 
                 
                 Spacer()
-                Text("Inicia sesión con estas redes sociales").foregroundColor(.gray)
+                Text("Inicia sesión con estas redes sociales").foregroundColor(.gray).padding(.top, 30)
                 HStack{
                     Button(action: facebook) {
                        Text("FACEBOOK")
@@ -40,7 +41,7 @@ struct LoginView: View {
                     }.buttonStyle(SecondaryButtonStyle())
                 }.padding(.horizontal, 30)
                 Spacer()
-            }.padding(.horizontal, 10)
+            }.padding(.horizontal, 10).padding(.top, 40)
         }
     }
     
