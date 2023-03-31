@@ -19,6 +19,30 @@ struct ContentView: View {
     }
 }
 
+struct InitialView2: View {
+    
+    
+    var body: some View {
+        VStack{
+            HStack{
+                Spacer()
+                Button("INICIA SESIÓN"){
+                    
+                }.foregroundColor(.gray)
+                Spacer()
+                Button("REGISTRO") {
+                    
+                }.foregroundColor( .white )
+                Spacer()
+            }
+            
+            SignInView()
+            
+            Spacer()
+        }.padding( .top, 30)
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
